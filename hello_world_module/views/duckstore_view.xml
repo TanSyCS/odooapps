@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_duck_model_list" model="ir.ui.view">
+        <field name="name">duck.model.list</field>
+        <field name="model">duck.model</field>
+        <field name="arch" type="xml">
+            <tree string="Duck Store List">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="gender"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Add the list view to the action -->
+    <record id="action_duck_model" model="ir.actions.act_window">
+        <field name="name">Duck Store</field>
+        <field name="res_model">duck.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Create and manage your duck store records here.
+            </p>
+        </field>
+    </record>
+
+    <!-- Add the menu item -->
+    <menuitem id="menu_duck_model_root" name="Duck Store" sequence="10"/>
+    <menuitem id="menu_duck_model" name="Ducks" parent="menu_duck_model_root" action="action_duck_model" sequence="10"/>
+</odoo>
